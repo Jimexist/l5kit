@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>ML Prediction, Planning and Simulation for Self-Driving &mdash; L5Kit 1.1.0 documentation</title>
+  <title>ML Prediction, Planning and Simulation for Self-Driving &mdash; L5Kit 1.3.0 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> L5Kit
+            <a href="index.html" class="icon icon-home"> L5Kit
           
 
           
@@ -84,7 +86,13 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ML Prediction, Planning and Simulation for Self-Driving</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#l5kit-usage">L5Kit Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#agent-motion-prediction">Agent Motion Prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#planning">Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulation">Simulation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="#news">News</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#overview">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#datasets">1. Datasets</a><ul>
@@ -94,7 +102,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#l5kit">2. L5Kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">3. Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#dataset-visualization">Dataset visualization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#agent-motion-prediction">Agent motion prediction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Agent motion prediction</a></li>
 </ul>
 </li>
 </ul>
@@ -113,7 +121,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#generate-l5kit-code-html-documentation-optional">4. Generate L5Kit code html documentation (optional)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">5. Run example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5. Run example</a></li>
 </ul>
 </li>
 </ul>
@@ -126,9 +134,13 @@
 <li class="toctree-l1"><a class="reference internal" href="#contact">Contact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_format.html">Dataset Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coords_systems.html">Coordinate Systems in L5Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coords_systems.html#introduction">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coords_systems.html#coordinate-systems">Coordinate Systems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_contribute.html">How to contribute</a></li>
 <li class="toctree-l1"><a class="reference internal" href="competition.html">Competition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="competition.html#scoring">Scoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="competition.html#coordinates-system-for-the-competition">Coordinates System for the competition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="competition.html#additional-metrics">Additional Metrics</a></li>
 </ul>
 
@@ -170,6 +182,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -181,7 +195,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
           
         
@@ -213,10 +227,47 @@
 <li><p>Plan behavior of an AV in order to imitate human driving.</p></li>
 <li><p>Study the improvement in performance of these systems as the amount of data increases.</p></li>
 </ul>
+<p>We provide several notebooks with examples and applications.</p>
+<div class="section" id="l5kit-usage">
+<h2>L5Kit Usage<a class="headerlink" href="#l5kit-usage" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/visualisation/visualise_data.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p>Our <a class="reference external" href="./examples/visualisation/visualise_data.ipynb">visualisation notebook</a> is the perfect place to start if you want to
+know more about L5Kit.</p>
+</div>
+<div class="section" id="agent-motion-prediction">
+<h2>Agent Motion Prediction<a class="headerlink" href="#agent-motion-prediction" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/agent_motion_prediction/agent_motion_prediction.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p>Related to our 2020 competition, we provide a <a class="reference external" href="./examples/agent_motion_prediction/agent_motion_prediction.ipynb">notebook to train and test</a> our baseline model for predicting
+future agents trajectories.</p>
+</div>
+<div class="section" id="planning">
+<h2>Planning<a class="headerlink" href="#planning" title="Permalink to this headline">¶</a></h2>
+<p>We provide 3 notebooks for a deep dive into planning for a Self Driving Vehicle (SDV).
+Please refer to our <a class="reference internal" href="examples/planning/README.html"><span class="doc">README</span></a> for a full description of what you can achieve using them:</p>
+<ul class="simple">
+<li><p>you can train your first ML policy for planning using our <a class="reference external" href="./examples/planning/train.ipynb">training notebook</a> <br /><a class="reference external" href="https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/planning/train.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p></li>
+<li><p>you can evaluate your model in the open-loop setting using our <a class="reference external" href="./examples/planning/open_loop_test.ipynb">open-loop evaluation notebook</a> <br /><a class="reference external" href="https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/planning/open_loop_test.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p></li>
+<li><p>you can evaluate your model in the closed-loop setting using our <a class="reference external" href="./examples/planning/closed_loop_test.ipynb">closed-loop evaluation notebook</a> <br /><a class="reference external" href="https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/planning/closed_loop_test.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p></li>
+</ul>
+<p>We also provide pre-trained models for this task. Please refer to the <a class="reference external" href="./examples/planning/train.ipynb">training notebook</a>.</p>
+</div>
+<div class="section" id="simulation">
+<h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h2>
+<p>We provide a simulation notebook to test interaction between agents and the SDV when they are both controlled by a ML policy.</p>
+<ul class="simple">
+<li><p>test your ML policy for simulation using our <a class="reference external" href="./examples/simulation/simulation_test.ipynb">simulation evaluation notebook</a> <br /><a class="reference external" href="https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/simulation/simulation_test.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="news">
 <h1>News<a class="headerlink" href="#news" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
+<li><p>04-16-2021: We’ve just released a new notebook for the ML simulation task!</p></li>
+<li><p>12-03-2020: We’ve just released a series of notebooks to train and evaluate an ML planning model. We’ve also included pre-trained models! Learn more about this in the dedicated <a class="reference internal" href="examples/planning/README.html"><span class="doc">README</span></a></p></li>
+<li><p>11-26-2020: <a class="reference external" href="https://www.kaggle.com/c/lyft-motion-prediction-autonomous-vehicles/overview">2020 Kaggle Lyft Motion Prediction for Autonomous Vehicles Competition</a> ended. We had more than 900 teams taking part in it!</p></li>
+<li><p>11-16-2020: <a class="reference external" href="https://corlconf.github.io/paper_86/">Dataset paper</a> presented at CoRL 2020</p></li>
+<li><p>09-29-2020: L5Kit v1.0.1 released</p></li>
+<li><p>08-25-2020: <a class="reference external" href="https://www.kaggle.com/c/lyft-motion-prediction-autonomous-vehicles/overview">2020 Kaggle Lyft Motion Prediction for Autonomous Vehicles Competition</a> started</p></li>
 <li><p>08-24-2020: L5Kit v1.0.6 and Dataset v1.1 (includes traffic light support) released!</p></li>
 <li><p>06-25-2020: Docs and API available at https://lyft.github.io/l5kit/ (thanks Kevin Zhao!)</p></li>
 </ul>
@@ -280,8 +331,8 @@ Store all files in a single folder to match this structure:</p>
 <h3>Dataset visualization<a class="headerlink" href="#dataset-visualization" title="Permalink to this headline">¶</a></h3>
 <p>A tutorial on how to load and visualize samples from a dataset using L5Kit.</p>
 </div>
-<div class="section" id="agent-motion-prediction">
-<h3>Agent motion prediction<a class="headerlink" href="#agent-motion-prediction" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Agent motion prediction<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>An example of training a neural network to predict the future positions of cars nearby an AV. This example is a baseline solution for the Lyft 2020 Kaggle Motion Prediction Challenge.</p>
 </div>
 </div>
@@ -344,7 +395,7 @@ Unzip the files and grab the example folder in the root of the project.</p>
 <h4>3.1 Latest Build<a class="headerlink" href="#latest-build" title="Permalink to this headline">¶</a></h4>
 <p>If you don’t care about determinist builds or you’re having troubles with packages resolution (Windows, Python&lt;3.7, etc..),
 you can install directly from the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> by running:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install -e .<span class="o">[</span>dev<span class="o">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install -e .<span class="s2">&quot;[dev]&quot;</span>
 </pre></div>
 </div>
 <p>If you run into trouble installing L5Kit on Windows, you may need to</p>
@@ -361,8 +412,8 @@ sphinx-build . docs
 </pre></div>
 </div>
 </div>
-<div class="section" id="id2">
-<h3>5. Run example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>5. Run example<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>jupyter notebook examples/visualisation/visualise_data.ipynb
 </pre></div>
 </div>
@@ -416,37 +467,29 @@ sphinx-build . docs
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="api_reference.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to L5Kit’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="api_reference.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to L5Kit’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Lyft Level 5
+        &#169; Copyright 2020, Lyft Level 5.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
